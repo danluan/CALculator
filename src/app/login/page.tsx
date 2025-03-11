@@ -1,8 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
@@ -19,7 +21,7 @@ export default function LoginPage() {
         if (res?.error) {
           alert("Erro ao fazer login: " + res.error);
         } else {
-          router.push("/"); // Redireciona após login bem-sucedido
+          router.push("/home");
         }
       }
 
@@ -45,7 +47,10 @@ export default function LoginPage() {
                 />
 
                 <button type="submit">
-                    Log In
+                    Sign In
+                </button>
+                <button type="button" onClick={() => router.push("/register")}>
+                    Sign Up
                 </button>
             </form>
         </>

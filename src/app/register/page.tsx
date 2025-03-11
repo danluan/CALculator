@@ -1,7 +1,9 @@
+"use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,6 +53,7 @@ export default function LoginPage() {
           required
         />
         <button type="submit">Register</button>
+        <button onClick={() => router.push("/login")}>Back to Log in</button>
       </form>
     </div>
   );

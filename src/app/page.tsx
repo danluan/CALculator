@@ -1,26 +1,25 @@
-"use client";
+import React from 'react'
+import Link from 'next/link'
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import Button from '../components/Button'
 
-export default function Home() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (status !== "loading" && !session) {
-      router.push("/login");
-    }
-  }, [session, status, router]);
-
-  if (status === "loading") return <p>Loading...</p>;
-
-  if (!session) return null;
-
+export default function LaddingPage() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Welcome, {session.user?.name}!</h1>
+    <div>
+      <header>
+        <Link href='/' >Home</Link>
+        <Link href='/register'>Sing Up</Link>
+      </header>
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+        <h1 className="text-2xl font-bold">Welcome to CALculator</h1>
+        <p>
+          We simplify the calories intake calculation for you.
+        </p>
+
+        <div className='flex flex-row items-center justify-around'>
+          <Button src='/register'>Get Started</Button>
+        </div>
+      </main>
     </div>
-  );
+  )
 }
