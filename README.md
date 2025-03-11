@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 CALculator 🔥
 
-## Getting Started
+**CALculator** is a nutrition tracking application that allows users to set daily macronutrient goals (calories, carbohydrates, proteins, and fats) and log their meals to track their daily intake.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Set daily calorie and macronutrient goals
+- Register meals with detailed nutritional information
+- Track daily consumption compared to goals
+- User-friendly interface for easy input and analysis
+- Data persistence for long-term tracking
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies Used
 
-## Learn More
+- **Next.js** - Frontend framework
+- **PostgreSQL** - Database for storing user data
+- **Prisma** - ORM for database management
+- **NextAuth.js** - Authentication system
+- **TypeScript** - Strongly typed JavaScript
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/danluan/CALculator.git
+   cd CALculator
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies**
+   ```sh
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Set up environment variables**
+   Create a `.env` file in the root directory and configure the following variables:
+   ```env
+   DATABASE_URL="postgresql://user:password@localhost:5432/calculator_db"
+   NEXTAUTH_SECRET="your-secret-key"
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run database migrations**
+   ```sh
+   npx prisma migrate dev --name init
+   ```
+
+5. **Start the development server**
+   ```sh
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:3000`.
+
+## 📬 Contact
+
+For any questions or feedback, feel free to reach out:
+
+- **Email**: danielluanlourencol@gmail.com
+- **GitHub**: [danluan](https://github.com/danluan)
