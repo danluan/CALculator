@@ -5,11 +5,11 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
-export default NextAuth({
+const authOptions = {
   session: {
-    strategy: "jwt",
+    strategy: "jwt" as const,
     maxAge: 30 * 60,
-    updateAge: 10 * 60
+    updateAge: 10 * 60,
   },
   jwt: {
     maxAge: 30 * 60,
@@ -45,7 +45,11 @@ export default NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/login",
-    signOut: "/login",
+    signIn: "/auth/login",
+    signOut: "/auth/login",
   },
-});
+};
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

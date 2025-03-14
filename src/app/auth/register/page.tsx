@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -20,7 +20,7 @@ export default function RegisterPage() {
 
     if (res.ok) {
       alert("Usuário registrado! Agora faça login.");
-      router.push("/login");
+      router.push("/auth/login");
     } else {
       const errorData = await res.json();
       alert("Erro: " + errorData.message);
@@ -53,7 +53,7 @@ export default function RegisterPage() {
           required
         />
         <button type="submit">Register</button>
-        <button onClick={() => router.push("/login")}>Back to Log in</button>
+        <button onClick={() => router.push("/auth/login")}>Back to Log in</button>
       </form>
     </div>
   );

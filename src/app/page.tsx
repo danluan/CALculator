@@ -7,8 +7,8 @@ export default function LaddingPage() {
   return (
     <div>
       <header>
-        <Link href='/' >Home</Link>
-        <Link href='/register'>Sing Up</Link>
+        <Link href='/'>Home</Link>
+        <Link href='/auth/register'>Sing Up</Link>
       </header>
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-2xl font-bold">Welcome to CALculator</h1>

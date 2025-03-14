@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
@@ -21,15 +21,16 @@ export default function Login() {
         if (res?.error) {
           alert("Erro ao fazer login: " + res.error);
         } else {
-          router.push("/home");
+          router.push("/app");
         }
       }
 
     return (
-        <>
+        <div className="flex flex-col items-center justify-center h-screen">
             <h1>Login page</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}
+                className="flex flex-col space-y-4">
                 <input 
                     type="email"
                     placeholder="Email"
@@ -49,10 +50,10 @@ export default function Login() {
                 <button type="submit">
                     Sign In
                 </button>
-                <button type="button" onClick={() => router.push("/register")}>
+                <button type="button" onClick={() => router.push("/auth/register")}>
                     Sign Up
                 </button>
             </form>
-        </>
+        </div>
     );
 }
