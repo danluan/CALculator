@@ -6,10 +6,10 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   if (pathname === '/auth/login' && token) {
-    return NextResponse.redirect(new URL(getUrl('/home')))
+    return NextResponse.redirect(new URL(getUrl('/app')))
   }
 
-  if (pathname.includes('/home') && !token) {
+  if (pathname.includes('/app') && !token) {
     return NextResponse.redirect(new URL(getUrl('/auth/login')))
   }
 }

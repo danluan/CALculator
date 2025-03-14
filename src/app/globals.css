@@ -1,15 +1,31 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+  --radius-5xl: 5rem;
+  --color-dark-green: #143109;
+  --color-light-green: #426b33;
+  --color-light-yellow: #FEE8B0;
+  --color-primary: #F97B22;
+  --color-black: #232020;
+}
+
 :root {
-  --green-dark: #9CA777;
-  --green-lighter: #7C9070;
-  --yellow-lighter: #FEE8B0;
-  --orange: #F97B22;
+  --dark-green: #143109;
+  --light-green: #426b33;
+  --light-yellow: #FEE8B0;
+  --primary: #F97B22;
   --black: #232020;
 }
 
 body {
-  background: var(--yellow-lighter);
+  background: var(--light-yellow);
   color: var(--black);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+button, a {
+  cursor: pointer;
 }

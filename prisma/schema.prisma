@@ -20,3 +20,16 @@ model User {
   password  String
   createdAt DateTime @default(now())
 }
+
+model Food {
+  id String @id @default(uuid())
+  name String
+
+}
+
+
+
+model Meal {
+  id String @id @default(uuid())
+  name String
+}

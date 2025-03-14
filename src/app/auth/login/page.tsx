@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import InputText from "@/components/InputText";
-import Button from "@/components/Button";
+import InputText from "@/components/ui/InputText";
+import Button from "@/components/ui/Button";
 
 export default function Login() {
     const [email, setEmail] = useState("");

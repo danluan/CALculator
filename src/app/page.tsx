@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import Button from '../components/Button'
+import Button from '../components/ui/Button'
 
 export default function LaddingPage() {
   return (
