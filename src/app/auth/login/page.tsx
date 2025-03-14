@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import InputText from "@/components/InputText";
+import Button from "@/components/Button";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -27,11 +29,10 @@ export default function Login() {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
-            <h1>Login page</h1>
-
             <form onSubmit={handleSubmit}
-                className="flex flex-col space-y-4">
-                <input 
+                className="w-1/2 max-w-200 flex flex-col space-y-4 bg-amber-50 p-10 rounded-lg">
+                <h1 className="text-2xl text-center">Login page</h1>
+                <InputText 
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -39,20 +40,21 @@ export default function Login() {
                     required
                 />
 
-                <input 
+                <InputText 
                     type="password"
                     placeholder="Senha"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} 
                     required
                 />
-
-                <button type="submit">
-                    Sign In
-                </button>
-                <button type="button" onClick={() => router.push("/auth/register")}>
-                    Sign Up
-                </button>
+                <div className="flex justify-center gap-10 w-full items-center">
+                    <Button type="submit">
+                        Sign In
+                    </Button>
+                    <Button type="button" onClick={() => router.push("/auth/register")}>
+                        Sign Up
+                    </Button>
+                </div>
             </form>
         </div>
     );
