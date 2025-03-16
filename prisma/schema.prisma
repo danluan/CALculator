@@ -14,22 +14,30 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  password     String
+  createdAt    DateTime @default(now())
+  caloriesGoal Int?
+  userMetrics UserMetric[]
+}
+
+model UserMetric {
+  id String @id @default(uuid())
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+  height Float
+  weight Float
+  createdAt    DateTime @default(now())
 }
 
 model Food {
-  id String @id @default(uuid())
+  id   String @id @default(uuid())
   name String
-
 }
 
-
-
 model Meal {
-  id String @id @default(uuid())
+  id   String @id @default(uuid())
   name String
 }
