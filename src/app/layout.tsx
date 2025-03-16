@@ -14,10 +14,6 @@ export const metadata: Metadata = {
   title: 'CALculator',
   description: 'Uma calculadora moderna e eficiente',
   viewport: 'width=device-width, initial-scale=1',
-  icons: {
-    icon: '/favicon.ico',
-  },
-  // Adicione outros metadados conforme necessário
 };
 
 export default async function RootLayout({

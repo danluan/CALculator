@@ -13,31 +13,64 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum MealType {
+  BREAKFAST
+  LUNCH
+  DINNER
+  SNACK
+  OTHER
+}
+
 model User {
-  id           String   @id @default(uuid())
+  id           String       @id @default(uuid())
   name         String
-  email        String   @unique
+  email        String       @unique
   password     String
-  createdAt    DateTime @default(now())
+  createdAt    DateTime     @default(now())
   caloriesGoal Int?
-  userMetrics UserMetric[]
+  userMetrics  UserMetric[]
+  foods        Food[]
+  meals        Meal[]
 }
 
 model UserMetric {
-  id String @id @default(uuid())
-  userId String @unique
-  user User @relation(fields: [userId], references: [id])
-  height Float
-  weight Float
-  createdAt    DateTime @default(now())
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  height    Float
+  weight    Float
+  createdAt DateTime @default(now())
 }
 
 model Food {
-  id   String @id @default(uuid())
-  name String
+  id       String  @id @default(uuid())
+  name     String
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  weight   Int
+  calories Int
+  mealFoods MealFood[] 
+}
+
+model MealFood {
+  id        String @id @default(uuid())
+  mealId    String
+  foodId    String
+  food      Food   @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  meal      Meal   @relation(fields: [mealId], references: [id], onDelete: Cascade)
+  
+  weight    Int
+  calories  Int
+  
+  @@unique([mealId, foodId])
 }
 
 model Meal {
-  id   String @id @default(uuid())
-  name String
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      MealType
+  createdAt DateTime  @default(now())
+  
+  foods     MealFood[]
 }
