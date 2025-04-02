@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InputText from "@/components/ui/InputText";
-import Button from "@/components/ui/Button";
+import {Button} from '@/components/ui/button'
 
 export default function RegisterPage() {
   const [name, setName] = useState("");

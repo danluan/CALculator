@@ -1,12 +1,10 @@
 "use client";
 
-import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import { AiOutlineLoading } from "react-icons/ai";
-import Button from "@/components/ui/Button";
 
 export default function Home() {
   const { data: session, status } = useSession();

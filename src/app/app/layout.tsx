@@ -1,4 +1,5 @@
-import Sidebar from "@/app/app/_components/Sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
 
 export default async function RootLayout({
   children,
@@ -6,11 +7,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="w-full h-full">
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
         {children}
-        </div>
-    </div>
+      </main>
+    </SidebarProvider>
   );
 }
